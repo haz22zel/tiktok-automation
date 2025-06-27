@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r /tiktok_requirements.txt
+          pip install -r tiktok_requirements.txt
 
       - name: Install system dependencies for Playwright  
         run: npx playwright install-deps
