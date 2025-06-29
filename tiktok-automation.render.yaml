@@ -1,0 +1,22 @@
+services:
+  - type: cron
+    name: tiktok-agent
+    runtime: python
+    buildCommand: "pip install -r tiktok_requirements.txt"
+    startCommand: "python tiktok_script.py"
+    schedule: "*/6 * * *"  
+    envVars:
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres.qeqlcikxfougmgahwyit
+      - key: DB_PASSWORD
+        value: yFSxgm$Y3b@@F.G
+      - key: DB_HOST
+        value: aws-0-us-east-2.pooler.supabase.com
+      - key: DB_PORT
+        value: 5432
+      - key: PROXY_USER
+        value: nuqezlxh
+      - key: PROXY_PASS
+        value: 7ttdt3buwe0p
