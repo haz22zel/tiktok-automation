@@ -1,10 +1,14 @@
 services:
   - type: cron
-    name: tiktok-agent
+    name: tiktok-trending-cron
     runtime: python
-    buildCommand: "pip install -r tiktok_requirements.txt"
-    startCommand: "python tiktok_script.py"
-    schedule: "*/6 * * *"  
+    repo: https://github.com/haz22zel/tiktok-automation
+    branch: main
+    buildCommand: |
+      pip install -r tiktok_requirements.txt
+      playwright install --with-deps
+    startCommand: python tiktok_script.py
+    schedule: "0 */6 * * *"
     envVars:
       - key: DB_NAME
         value: postgres
@@ -15,7 +19,7 @@ services:
       - key: DB_HOST
         value: aws-0-us-east-2.pooler.supabase.com
       - key: DB_PORT
-        value: 5432
+        value: "5432"
       - key: PROXY_USER
         value: nuqezlxh
       - key: PROXY_PASS
